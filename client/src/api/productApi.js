@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/products";
-const ORDERS_URL = "http://localhost:5000/api/orders";
+const API_URL = "https://sweet-bliss-ja4h.onrender.com/api/products";
+const ORDERS_URL = "https://sweet-bliss-ja4h.onrender.com/api/orders";
 
 // ── Products ──────────────────────────────
 export const getProducts = async () => {

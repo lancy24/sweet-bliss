@@ -24,7 +24,7 @@ export default function OTPPage() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/verify-otp",
+       "https://sweet-bliss-ja4h.onrender.com/api/auth/verify-otp",
         { email, otp }
       );
       const userData = response.data;

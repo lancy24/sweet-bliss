@@ -5,7 +5,7 @@ import ShareModal from "./ShareModal";
 import "./CakeCard.css";
 
 const MAX_LIMIT = 25;
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://sweet-bliss-ja4h.onrender.com";
 
 export default function ProductCard({ products, hasSizes = false, showCategoryFilter = false }) {
   const { addToCart } = useCart();

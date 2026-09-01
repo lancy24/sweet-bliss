@@ -10,7 +10,7 @@ import axios from "axios";
 import "./AdminPanel.css";
 
 const ADMIN_PASSWORD = "blissful123";
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://sweet-bliss-ja4h.onrender.com";
 
 export default function AdminPanel() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -13,7 +13,7 @@ export function CartProvider({ children }) {
     const user = JSON.parse(savedUser);
     try {
       await axios.put(
-        "http://localhost:5000/api/auth/save-cart",
+        "https://sweet-bliss-ja4h.onrender.com/api/auth/save-cart",
         { cart: items },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
@@ -32,7 +32,7 @@ export function CartProvider({ children }) {
     const user = JSON.parse(savedUser);
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/auth/me",
+        "https://sweet-bliss-ja4h.onrender.com/api/auth/me",
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
       if (response.data.savedCart?.length > 0) {
