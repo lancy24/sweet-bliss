@@ -1,0 +1,28 @@
+.tour video {
+  width: 99.3%;
+  /* height: 600px; */
+  display: block;
+  border: 5px solid black;
+}
+.tour h1{
+  text-align: center;
+  color: lightslategray;
+  background-color: #ccc;
+  margin: 0px;
+  padding: 0px;
+  font-size:70px;
+}
+.map-section {
+    width: 99%;
+  /* padding: 40px 20px; */
+  background-color: #fff0f5;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.map-section h2 {
+  font-size: 70px;
+  color: black;
+   font-family:"Sevillana", cursive;
+  margin-bottom: 20px;
+}

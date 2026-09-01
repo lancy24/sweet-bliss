@@ -1,0 +1,297 @@
+.cart-page {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.quantity-controls button {
+  padding: 4px 8px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.remove-button {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkout-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff5a5f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background: #e04e52;
+}
+
+/* Payment Popup */
+.payment-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.payment-popup {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.payment-popup h2 {
+  margin-bottom: 20px;
+}
+
+.payment-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.pay-btn {
+  padding: 10px;
+  border: none;
+  background-color: #ff5a5f;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pay-btn:hover {
+  background-color: #e04e52;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.discount-line {
+  color: green;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.final-amount {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+body.dark-mode .cart-page {
+  background-color: #121212;
+}
+
+body.dark-mode .cart-item {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark-mode .checkout-button {
+  background-color: #ff9800;
+  color: black;
+}
+
+.address-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #673f5b;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #e94e77;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.error {
+  color: #e94e77;
+  font-size: 12px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.back-button {
+  background: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  background: #ddd;
+}
+
+.order-total-preview {
+  background: #fff5f8;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.payment-summary {
+  background: #fff5f8;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+.order-confirmed {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.confirmed-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.confirmed-sub {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.order-receipt {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.order-receipt h3 {
+  color: #673f5b;
+  margin-bottom: 12px;
+}
+
+.order-receipt p {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.receipt-items {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  margin: 12px 0;
+}
+
+.receipt-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 4px 0;
+  color: #444;
+}
+
+.final-total {
+  font-size: 16px;
+  color: #e94e77;
+  margin-top: 8px;
+}
+
+.discount-line {
+  color: #1D9E75;
+  font-size: 13px;
+}
+
+.discount-note {
+  color: #1D9E75;
+  font-size: 13px;
+  margin-bottom: 12px;
+}

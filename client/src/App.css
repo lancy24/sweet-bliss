@@ -1,0 +1,44 @@
+/* GLOBAL RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Fix all inputs globally */
+input,
+textarea,
+select {
+  color: #333333 !important;
+  -webkit-text-fill-color: #333333 !important;
+  background-color: white !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaaaaa !important;
+  -webkit-text-fill-color: #aaaaaa !important;
+  opacity: 1;
+}
+
+/* Light mode */
+body.light-mode {
+  background-color: #fff;
+  color: #222;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* Container transition */
+.container {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

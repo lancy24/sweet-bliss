@@ -1,0 +1,68 @@
+.reviewss {
+  padding: 50px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.reviews h2 {
+  font-size: 70px;
+  color: #d66a6a;
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+}
+
+.review-containerr {
+  display: flex;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  justify-content: center; /* center all cards */
+  gap: 20px;
+}
+
+.review-cards {
+  background: linear-gradient(135deg, #c387ac, #fce4ec);
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px; /* fixed width for uniform size */
+  height: 200px; /* slightly reduced since no pic */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review-textt {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  flex-grow: 1;
+  margin-bottom: 10px;
+  text-align: left;
+  font-style: italic;
+}
+
+.review-headerr {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.reviewerr {
+  font-weight: bold;
+  color: #aa4c4c;
+  font-size: 1rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.review-ratingg {
+  font-size: 1.2rem;
+  color: #FFD700;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.rating-textt {
+  font-size: 1rem;
+  color: #555;
+  margin-left: 8px;
+}
+
+

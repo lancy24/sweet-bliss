@@ -1,0 +1,293 @@
+/* =====================================================
+   BLISSFUL BITES — GLOBAL RESPONSIVE CSS
+   Import this in main.jsx or App.jsx:
+   import "./responsive.css";
+   ===================================================== */
+
+/* ── Navbar ── */
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    gap: 6px;
+    top: 28px;
+  }
+
+  #studio { font-size: 15px; }
+
+  .nav1 {
+    display: none; /* hide nav links on mobile */
+  }
+
+  #mainScreen { display: none; } /* hide dark mode on mobile */
+
+  .veg { display: none; } /* hide pure veg on mobile */
+
+  .auth-nav-buttons {
+    gap: 4px;
+  }
+
+  .nav-login-btn,
+  .nav-signup-btn,
+  .nav-logout-btn,
+  .nav-admin-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .nav-username { font-size: 11px; padding: 4px 8px; }
+
+  .book button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .dashboard { padding-top: 110px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 6px 10px; gap: 4px; }
+  #studio { font-size: 13px; }
+  .book button { padding: 5px 10px; font-size: 11px; }
+}
+
+/* ── Search bar ── */
+@media (max-width: 768px) {
+  .search-bar-fixed { padding: 6px 12px; top: 80px; }
+  .search-wrapper { width: 100%; max-width: 100%; }
+}
+
+/* ── Hero Slideshow ── */
+@media (max-width: 768px) {
+  .hero-slideshow { height: 260px; }
+  .hero-title { font-size: 24px; }
+  .hero-subtitle { font-size: 13px; }
+  .hero-btn { padding: 10px 20px; font-size: 13px; }
+  .hero-emoji { font-size: 48px; }
+  .slide-arrow { width: 36px; height: 36px; font-size: 22px; }
+}
+
+/* ── Bakery Header (h1 + video) ── */
+@media (max-width: 768px) {
+  .hd h1 { font-size: 48px !important; padding: 16px !important; }
+  .containerr p { font-size: 18px !important; }
+  .cakecake video { max-height: 220px; }
+  .cakecake .overlay { font-size: 3rem; }
+}
+
+@media (max-width: 480px) {
+  .hd h1 { font-size: 36px !important; }
+  .containerr p { font-size: 14px !important; }
+  .cakecake .overlay { font-size: 2rem; }
+}
+
+/* ── Discount bar ── */
+@media (max-width: 480px) {
+  #off h5 { font-size: 10px; }
+}
+
+/* ── Product Menu nav ── */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0 8px;
+    scrollbar-width: none;
+  }
+  .navbar::-webkit-scrollbar { display: none; }
+  .navbar > li > a { padding: 10px 12px; font-size: 12px; white-space: nowrap; }
+  .dropdown-content { min-width: 160px; }
+}
+
+/* ── Product grid (gallery cards) ── */
+@media (max-width: 1024px) {
+  .images-container {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    padding: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .images-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+    padding: 16px !important;
+  }
+
+  .gallery { padding: 12px; }
+  .gallery img { height: 160px; }
+  .caption { font-size: 0.85rem; }
+  .price-cart { gap: 4px; flex-wrap: wrap; justify-content: center; }
+  .price-text { font-size: 1rem; }
+  .add-to-cart { padding: 6px 10px; font-size: 11px; }
+  .qty-btn { padding: 3px 8px; font-size: 14px; }
+  .qty-display { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .images-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    padding: 12px !important;
+  }
+  .gallery img { height: 130px; }
+  .caption { font-size: 0.75rem; }
+  .add-to-cart { font-size: 10px; padding: 5px 8px; }
+}
+
+/* ── Filter bar ── */
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    gap: 10px;
+    margin: 8px 12px;
+    padding: 12px;
+  }
+  .filter-buttons { flex-wrap: wrap; gap: 6px; }
+  .filter-btn { padding: 5px 12px; font-size: 12px; }
+}
+
+/* ── Bestsellers ── */
+@media (max-width: 768px) {
+  .bestseller-row { gap: 20px; }
+  .bestseller-card { width: 200px; }
+  .bestseller-card img { height: 180px; }
+}
+
+@media (max-width: 480px) {
+  .bestseller-card { width: 160px; }
+  .bestseller-card img { height: 140px; }
+  .bestsellers-heading { font-size: 22px; }
+}
+
+/* ── Bakers ── */
+@media (max-width: 768px) {
+  .bakerimg { gap: 20px; }
+  .bakerone, .bakertwo { max-width: 180px; }
+  .bakers h1 { font-size: 24px; padding: 12px; }
+}
+
+/* ── Tour & Map ── */
+@media (max-width: 768px) {
+  .tour h1 { font-size: 32px; }
+  .map-section h2 { font-size: 36px; }
+  .map-section iframe { width: 100% !important; height: 300px !important; }
+}
+
+/* ── FAQ ── */
+@media (max-width: 768px) {
+  .faq-section { padding: 0 12px; margin: 20px auto; }
+  .faq-section h5 { font-size: 2rem; }
+  .faq-question { font-size: 0.95rem; padding: 12px; }
+}
+
+/* ── Reviews ── */
+@media (max-width: 768px) {
+  .reviews h2 { font-size: 42px; }
+  .review-container { gap: 14px; }
+  .review-card { width: 260px; min-height: auto; }
+  .see-more-btn { width: auto !important; padding: 10px 24px; }
+}
+
+@media (max-width: 480px) {
+  .review-card { width: 90vw; }
+  .reviews h2 { font-size: 32px; }
+}
+
+/* ── Cart Page ── */
+@media (max-width: 768px) {
+  .cart-page { padding: 12px; }
+  .cart-item { flex-wrap: wrap; gap: 10px; }
+  .cart-item-image { width: 60px; height: 60px; }
+  .form-row { grid-template-columns: 1fr !important; }
+  .payment-popup { padding: 20px; }
+}
+
+/* ── Footer ── */
+@media (max-width: 768px) {
+  .footer-container { flex-direction: column; gap: 20px; }
+  .footer-container > div { flex: 1 1 100%; }
+  .footer-about h3 { font-size: 1.4rem; }
+  .footer-links h4 { font-size: 1.4rem; }
+  .footer-contact h4 { font-size: 1.4rem; }
+  .footer-links ul li a { padding-left: 0; margin: 8px 0; font-size: 14px; }
+  .footer-social { gap: 30px; font-size: 32px; }
+  .sweett { position: static; font-size: 13px; }
+}
+
+/* ── Features Section (About) ── */
+@media (max-width: 768px) {
+  .features { grid-template-columns: 1fr 1fr !important; gap: 12px; padding: 16px; }
+  .feature-card { max-width: 100%; min-height: auto; }
+  .feature-card h3 { font-size: 1rem; }
+  .illustration img { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .features { grid-template-columns: 1fr !important; }
+}
+
+/* ── Offers ── */
+@media (max-width: 768px) {
+  .offer-container { padding: 20px 12px; }
+  .offer-card { width: 180px; height: auto; padding: 16px; }
+}
+
+@media (max-width: 480px) {
+  .offer-card { width: 90%; max-width: 300px; }
+}
+
+/* ── Contact ── */
+@media (max-width: 480px) {
+  .contact-card { width: 90vw; padding: 20px; }
+  .contact-title { font-size: 1.6rem; text-align: center; }
+}
+
+/* ── Auth Pages ── */
+@media (max-width: 480px) {
+  .auth-box { padding: 24px 16px; }
+  .auth-box h2 { font-size: 20px; }
+}
+
+/* ── Build Your Box ── */
+@media (max-width: 768px) {
+  .byb-grid { grid-template-columns: 1fr !important; }
+  .byb-page { padding: 1rem 0.5rem; }
+  .byb-header h1 { font-size: 1.6rem; }
+}
+
+/* ── Share Modal ── */
+@media (max-width: 480px) {
+  .share-modal { padding: 20px 16px; }
+  .share-icon-wrap { width: 44px; height: 44px; font-size: 18px; }
+  .share-buttons { gap: 8px; }
+}
+
+/* ── Chatbot ── */
+@media (max-width: 480px) {
+  .chatbot-window { width: 290px; height: 380px; }
+  .chatbot-wrapper { bottom: 16px; right: 16px; }
+}
+
+/* ── Admin Panel ── */
+@media (max-width: 768px) {
+  .admin-header { flex-wrap: wrap; gap: 8px; }
+  .admin-tabs { overflow-x: auto; padding: 0 12px; }
+  .admin-tabs button { padding: 10px 14px; font-size: 12px; white-space: nowrap; }
+  .admin-section { padding: 12px; }
+  .product-info { flex-wrap: wrap; gap: 10px; }
+  .order-body { grid-template-columns: 1fr !important; }
+  .form-row { grid-template-columns: 1fr !important; }
+}
+
+/* ── General fixes ── */
+* { box-sizing: border-box; }
+
+img { max-width: 100%; }
+
+@media (max-width: 768px) {
+  .color { font-size: 1.8rem !important; }
+  .faq-section h5 { font-size: 1.8rem; }
+}

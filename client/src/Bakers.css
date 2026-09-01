@@ -1,0 +1,58 @@
+.bakers {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff8f0; /* light pastry-inspired backdrop */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.bakers h1 {
+  font-size: 42px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: beige;
+  font-style: italic;
+  color: #4a2c2a;
+  text-align: center;
+  margin: 0 auto 30px;
+  padding: 20px;
+  border: 2px solid #c387ac;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(195, 135, 172, 0.3);
+}
+
+.bakerimg {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.bakerone,
+.bakertwo {
+  max-width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.bakerone img,
+.bakertwo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.bakerone img:hover,
+.bakertwo img:hover {
+  transform: scale(1.05);
+}
+
+.captionn {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6b4f29;
+  margin-top: 12px;
+  font-family: 'Georgia', serif;
+  line-height: 1.4;
+}

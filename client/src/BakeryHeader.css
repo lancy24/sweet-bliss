@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lobster&family=My+Soul&family=Sevillana&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+
+h1 {
+  padding: 25px;
+  margin-top: 0;
+  text-align: center;
+  font-size: 100px;
+  font-family: "Sevillana", cursive;
+}
+
+.containerr p {
+  font-size: 40px;
+  text-align: center;
+  color: #5a4638;
+  font-family: cursive;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.cakecake {
+  margin-top: 0;
+  padding-top: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.cakecake .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #1f1616;
+  font-size: 8rem;
+  background-color: rgba(255, 255, 255, 0.34);
+  padding: 10px 20px;
+  font-family:"Dancing Script", cursive;
+  border-radius: 8px;
+}
+
+.cakecake video {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+  box-shadow: none;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.cakecake video:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 50px; }
+  .containerr p { font-size: 24px; }
+  .cakecake .overlay { font-size: 3rem; }
+}
+
+body.dark-mode .hd { background-color: #181818; }
+body.dark-mode h1 { color: #ffcc80; }
+body.dark-mode .containerr p { color: #ddd; }
+body.dark-mode .overlay { background-color: rgba(0,0,0,0.6); color: #fff; }
+
+/* ── HERO SLIDESHOW ── */
+.hero-slideshow {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background 0.5s ease;
+}
+
+.hero-content {
+  text-align: center;
+  z-index: 2;
+  padding: 20px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.content-fade {
+  opacity: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+.hero-emoji {
+  font-size: 72px;
+  margin-bottom: 12px;
+  animation: float 2s ease-in-out infinite alternate;
+  display: block;
+  line-height: 1;
+}
+
+@keyframes float {
+  0%   { transform: translateY(0);    }
+  100% { transform: translateY(-12px);}
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  margin: 0 0 8px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.9);
+  margin: 0 0 24px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.hero-btn {
+  background: white;
+  color: #e94e77;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: "Poppins", sans-serif;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Dots */
+.slide-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.slide-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.slide-dot.active {
+  background: white;
+  width: 28px;
+  border-radius: 5px;
+}
+
+/* Arrows */
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.3);
+  border: none;
+  color: white;
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  backdrop-filter: blur(4px);
+  line-height: 1;
+}
+
+.slide-arrow:hover { background: rgba(255,255,255,0.5); }
+.slide-arrow.left  { left: 20px;  }
+.slide-arrow.right { right: 20px; }
