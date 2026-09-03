@@ -129,4 +129,35 @@ const googleAuth = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser, getMe, saveCart, googleAuth };
+
+const resetAdminPassword = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "Admin user not found" });
+    }
+
+    user.password = password;
+    user.role = "admin";
+
+    await user.save();
+
+    res.json({ message: "Admin password updated successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+
+module.exports = { registerUser, loginUser, getMe, saveCart, googleAuth };module.exports = {
+  registerUser,
+  loginUser,
+  getMe,
+  saveCart,
+  googleAuth,
+  resetAdminPassword,
+};
