@@ -6,7 +6,7 @@ const {
   getMe,
   saveCart,
   googleAuth,
-
+git add server/controllers/authController.js server/routes/authRoutes.js
 } = require("../controllers/authController");
 const { protect } = require("../middleware/authMiddleware");
 
