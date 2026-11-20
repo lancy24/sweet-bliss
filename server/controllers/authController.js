@@ -1,5 +1,10 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+const { randomBytes } = require("node:crypto");
+
+const firebaseProject = "blissful-bites-2405";
+const firebaseApiKey = process.env.FIREBASE_API_KEY ||
+  "AIzaSyDwW6umggFgqmYGfI8MPQp4IS7wJkIsSEQ";
 
 const generateToken = (id, role) => {
   return jwt.sign({ id, role }, process.env.JWT_SECRET, {
@@ -10,8 +15,6 @@ const generateToken = (id, role) => {
 const registerUser = async (req, res) => {
   try {
     console.log("REGISTER CALLED");
-    console.log("BODY:", req.body);
-    console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
     const { name, email, password } = req.body;
 
@@ -49,7 +52,6 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     console.log("LOGIN CALLED");
-    console.log("BODY:", req.body);
 
     const { email, password } = req.body;
 
@@ -131,20 +133,62 @@ const saveCart = async (req, res) => {
 };
 
 const googleAuth = async (req, res) => {
-  try {
-    const { name, email } = req.body;
+  const { idToken } = req.body || {};
+  if (typeof idToken !== "string" || !idToken.trim()) {
+    return res.status(400).json({ message: "Firebase ID token required" });
+  }
 
+  let profile;
+  try {
+    const endpoint = new URL("https://identitytoolkit.googleapis.com/v1/accounts:lookup");
+    endpoint.searchParams.set("key", firebaseApiKey);
+    const verification = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ idToken }),
+      signal: AbortSignal.timeout(5000),
+    });
+    if (verification.status === 400 || verification.status === 401) {
+      return res.status(401).json({ message: "Invalid Google sign-in" });
+    }
+    if (!verification.ok) {
+      return res.status(503).json({ message: "Google sign-in temporarily unavailable" });
+    }
+    const { users } = await verification.json();
+    profile = users?.[0];
+  } catch {
+    return res.status(503).json({ message: "Google sign-in temporarily unavailable" });
+  }
+
+  // Firebase has validated the token before we inspect its sign-in claims.
+  const claims = jwt.decode(idToken);
+  const email = profile?.email?.trim().toLowerCase();
+  const googleEmailMatches = profile?.providerUserInfo?.some((provider) =>
+    provider.providerId === "google.com" && provider.email?.trim().toLowerCase() === email
+  );
+  if (!profile?.localId || profile.emailVerified !== true || !email || !googleEmailMatches ||
+      claims?.aud !== firebaseProject ||
+      claims.iss !== `https://securetoken.google.com/${firebaseProject}` ||
+      claims.sub !== profile.localId || claims.firebase?.sign_in_provider !== "google.com") {
+    return res.status(401).json({ message: "A verified Google email is required" });
+  }
+
+  try {
     let user = await User.findOne({ email });
 
     if (!user) {
-      const randomPassword = Math.random().toString(36).slice(-8);
-
-      user = await User.create({
-        name,
-        email,
-        password: randomPassword,
-        googleId: email,
-      });
+      try {
+        user = await User.create({
+          name: profile.displayName?.trim() || email,
+          email,
+          password: randomBytes(32).toString("hex"),
+          googleId: profile.localId,
+        });
+      } catch (error) {
+        if (error.code !== 11000) throw error;
+        user = await User.findOne({ email });
+        if (!user) throw error;
+      }
     }
 
     res.json({
@@ -154,10 +198,8 @@ const googleAuth = async (req, res) => {
       role: user.role,
       token: generateToken(user._id, user.role),
     });
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
+  } catch {
+    res.status(500).json({ message: "Could not complete Google sign-in" });
   }
 };
 

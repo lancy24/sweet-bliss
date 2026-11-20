@@ -1,8 +1,8 @@
+import { BASE_URL } from "./api/baseUrl";
 import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "./firebase";
-const BASE_URL = "https://sweet-bliss-ja4h.onrender.com";
 
 const AuthContext = createContext();
 
@@ -63,10 +63,10 @@ export function AuthProvider({ children }) {
 
   const googleLogin = async () => {
     const result = await signInWithPopup(auth, googleProvider);
-    const { displayName, email } = result.user;
+    const idToken = await result.user.getIdToken();
     const response = await axios.post(
       `${BASE_URL}/api/auth/google`,
-      { name: displayName, email }
+      { idToken }
     );
     const userData = response.data;
     setUser(userData);

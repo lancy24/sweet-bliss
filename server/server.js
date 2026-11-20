@@ -3,17 +3,19 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const path = require("path");
 
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, ".env") });
 
 const connectDB = require("./config/db");
-connectDB();
 
 const app = express();
 
 app.use(cors({
   origin: [
+    "https://sweet-bliss-gules.vercel.app",
     "https://sweet-bliss-gox10ubjw-lancy24.vercel.app",
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    ...(process.env.CLIENT_ORIGINS || "").split(",").map((origin) => origin.trim()).filter(Boolean)
   ],
   credentials: true
 }));
@@ -36,6 +38,8 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 });
