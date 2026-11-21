@@ -1,16 +1,18 @@
 import React from 'react';
-import videoFile from './assets/Untitled design (2).mp4'; // Adjust path if needed
-import './TourAndMap.css'; // Optional: if you're using custom styles
+import videoFile from './assets/Untitled design (2).mp4';
+import tourPoster from './assets/pastry.jpeg';
+import './TourAndMap.css';
 
 const TourAndMap = () => {
   return (
     <div>
       <div className="tour">
         <h1>👉🏻Inside Blissful Bites👈🏻</h1>
-        <video autoPlay muted loop playsInline>
+        <video controls muted playsInline preload="none" poster={tourPoster} aria-label="Inside Blissful Bites bakery tour">
           <source src={videoFile} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <a className="tour-video-link" href={videoFile}>Open bakery tour video</a>
       </div>
       <br />
       <section className="map-section">

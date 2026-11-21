@@ -1,8 +1,19 @@
 .tour video {
-  width: 99.3%;
-  /* height: 600px; */
+  width: 100%;
+  box-sizing: border-box;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #211719;
   display: block;
   border: 5px solid black;
+}
+.tour-video-link {
+  display: table;
+  margin: 0.75rem auto 0;
+  padding: 0.6rem 0.85rem;
+  color: #8d2348;
+  background: #fff0f5;
+  border-radius: 0.5rem;
 }
 .tour h1{
   text-align: center;
