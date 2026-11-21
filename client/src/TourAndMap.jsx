@@ -1,6 +1,6 @@
 import React from 'react';
-import videoFile from './assets/Untitled design (2).mp4';
-import tourPoster from './assets/pastry.jpeg';
+import videoFile from './assets/bakery-tour.mp4';
+import tourPoster from './assets/bakery-tour-preview.jpg';
 import './TourAndMap.css';
 
 const TourAndMap = () => {
